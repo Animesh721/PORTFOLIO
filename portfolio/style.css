@@ -1,0 +1,673 @@
+/* 
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #121212;
+}
+
+.navbar {
+    text-decoration: none;
+    height: 55px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end; 
+    padding: 10px 20px;
+    background-color: black; 
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.right-links {
+    display: flex;
+    gap: 20px; 
+}
+
+.right-links a {
+    text-decoration: none;
+    color: white;
+    padding: 11px 15px;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.navbar a:hover {
+    background-color: #2980B9; 
+    border-radius: 15px;
+}
+
+
+
+.home {
+    background-color: #1C2833;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3498DB; 
+}
+
+.intro .cursor {
+    display: inline-block;
+    width: 10px;
+    background-color: #3498DB; 
+    animation: blink 0.7s step-start infinite;
+}
+
+.intro p {
+    font-size: larger;
+    color: #7FB3D5; 
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.about {
+    background-color: #D5DBDB; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-container {
+    background-color: #F2F3F4; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about-container h2 {
+    font-family: Quicksand;
+    text-decoration: underline;
+    font-size: xx-large;
+    color: #2C3E50; 
+    margin-bottom: 20px;
+}
+
+.about-container p {
+    font-size: x-large;
+    font-family: "Sour+Gummy";
+    line-height: 2.6;
+    color: #555; 
+    text-align: center;
+}
+
+.tech-stack {
+    margin-top: 30px;
+    text-align: center;
+    width: 80%;
+}
+
+.tech-stack h3 {
+    font-size: 2rem;
+    color: #2C3E50; 
+    font-family: Quicksand;
+    margin-bottom: 20px;
+}
+
+.tech-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.tech-item img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.2s ease;
+    filter: grayscale(50%);
+}
+
+.tech-item img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+.tech-item p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #555; 
+    font-family: Quicksand;
+}
+
+.projects {
+    background-color: #2980B9; 
+    padding: 50px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.projects-container h2 {
+    font-family: Quicksand;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.project-grid {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    width: 300px;
+    height: 200px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: none;
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.flip-card-front {
+    background-color: #ECF0F1;
+}
+
+.flip-card-front h3 {
+    font-size: 1.5rem;
+    font-family: Quicksand;
+    color: #2C3E50; 
+    margin-bottom: 15px;
+}
+
+.flip-card-front .card-links {
+    display: flex;
+    gap: 10px;
+}
+
+.flip-card-front .card-links a {
+    text-decoration: none;
+    background-color: #2C3E50; 
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.flip-card-front .card-links a:hover {
+    background-color: #34495E; 
+}
+
+.flip-card-back {
+    background-color: #2C3E50;
+    color: white;
+    transform: rotateY(180deg);
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: Quicksand;
+}
+
+.contacts {
+    background-color: #f0f0f0; 
+    padding: 50px 20px;
+    text-align: center;
+    color:#1C2833;
+}
+
+.contacts-container h2 {
+    font-family: Quicksand;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.contacts-container p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #1C2833;
+}
+
+.contact-info {
+    margin: 20px 0;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.contact-info a {
+    color: #1C2833;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.download-btn {
+    margin-top: 20px;
+}
+
+.download-btn a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #2C3E50; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn a:hover {
+    background-color: #34495E; 
+    transform: scale(1.05);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2C3E50; 
+    height: 50px;
+    color: #3498DB; 
+} */
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+}
+
+.navbar {
+    text-decoration: none;
+    height: 55px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end; 
+    padding: 10px 20px;
+    background-color: black; 
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    list-style: none;
+    transition: background-color 0.3s ease; 
+}
+
+.right-links {
+    display: flex;
+    gap: 20px; 
+}
+
+.right-links a {
+    text-decoration: none;
+    color: white;
+    padding: 11px 15px;
+    font-family: sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.navbar a:hover {
+    background-color: #2980B9; 
+    border-radius: 15px;
+}
+
+.home {
+    background-color: #1C2833;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3498DB; 
+}
+
+.intro .cursor {
+    display: inline-block;
+    width: 10px;
+    background-color: #3498DB; 
+    animation: blink 0.7s step-start infinite;
+}
+
+.intro p {
+    font-size: larger;
+    color: #7FB3D5; 
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.about {
+    background-color: #D5DBDB; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-container {
+    background-color: #F2F3F4; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about-container h2 {
+    font-family: Quicksand;
+    text-decoration: underline;
+    font-size: xx-large;
+    color: #2C3E50; 
+    margin-bottom: 20px;
+}
+
+.about-container p {
+    font-size: x-large;
+    font-family: "Sour+Gummy";
+    line-height: 2.6;
+    color: #555; 
+    text-align: center;
+}
+
+.tech-stack {
+    margin-top: 30px;
+    text-align: center;
+    width: 80%;
+}
+
+.tech-stack h3 {
+    font-size: 2rem;
+    color: #2C3E50; 
+    font-family: Quicksand;
+    margin-bottom: 20px;
+}
+
+.tech-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.tech-item img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.2s ease;
+    filter: grayscale(50%);
+}
+
+.tech-item img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+.tech-item p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #555; 
+    font-family: Quicksand;
+}
+
+.projects {
+    background-color: #2980B9; 
+    padding: 50px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.projects-container h2 {
+    font-family: Quicksand;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.project-grid {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    width: 300px;
+    height: 200px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: none;
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.flip-card-front {
+    background-color: #ECF0F1;
+}
+
+.flip-card-front h3 {
+    font-size: 1.5rem;
+    font-family: Quicksand;
+    color: #2C3E50; 
+    margin-bottom: 15px;
+}
+
+.flip-card-front .card-links {
+    display: flex;
+    gap: 10px;
+}
+
+.flip-card-front .card-links a {
+    text-decoration: none;
+    background-color: #2C3E50; 
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.flip-card-front .card-links a:hover {
+    background-color: #34495E; 
+}
+
+.flip-card-back {
+    background-color: #2C3E50;
+    color: white;
+    transform: rotateY(180deg);
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: Quicksand;
+}
+
+.contacts {
+    background-color: #f0f0f0; 
+    padding: 50px 20px;
+    text-align: center;
+    color:#1C2833;
+}
+
+.contacts-container h2 {
+    font-family: Quicksand;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.contacts-container p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #1C2833;
+}
+
+.contact-info {
+    margin: 20px 0;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.contact-info a {
+    color: #1C2833;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.download-btn {
+    margin-top: 20px;
+}
+
+.download-btn a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #2C3E50; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Quicksand', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn a:hover {
+    background-color: #34495E; 
+    transform: scale(1.05);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2C3E50; 
+    height: 50px;
+    color: #3498DB; 
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        background-color: transparent;
+    }
+
+    .right-links {
+        display: none;
+    }
+}
